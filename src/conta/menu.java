@@ -1,5 +1,6 @@
 package conta;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import conta.model.ContaCorrente;
 import conta.model.ContaPoupanca;
@@ -10,14 +11,6 @@ public class menu {
 	public static void main(String[] args) {
 
 		int opcao;
-
-		// Teste da Classe Conta
-		Conta c1 = new Conta(1, 123, 1, "Adriana", 10000.0f);
-		c1.visualizar();
-		c1.sacar(12000.0f);
-		c1.visualizar();
-		c1.depositar(5000.0f);
-		c1.visualizar();
 
 		Scanner leia = new Scanner(System.in);
 
@@ -61,6 +54,14 @@ public class menu {
 			System.out.println("                                                     " + Cores.TEXT_RESET);
 
 			opcao = leia.nextInt();
+			
+			try {
+				opcao = leia.nextInt();
+			}catch(InputMismatchException e){
+				System.out.println("\nDigite valores inteiros!");
+				leia.nextLine();
+				opcao=0;
+			}
 
 			if (opcao == 9) {
 				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
