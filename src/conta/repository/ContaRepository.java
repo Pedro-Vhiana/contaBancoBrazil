@@ -8,7 +8,7 @@ public interface ContaRepository {
 	// Create, Read, Update e Delete
 	public void procurarPorNumero(int numero);
 
-	public void listarToda();
+	public void listarTodas();
 
 	public void cadastrar(Conta conta);
 
